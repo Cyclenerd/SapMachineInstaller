@@ -1,6 +1,6 @@
 language: shell
 
-- os: windows
+os: windows
 
 before_script:
   - wget "http://prdownloads.sourceforge.net/nsis/nsis-3.04-setup.exe?download" -O nsis-setup.exe

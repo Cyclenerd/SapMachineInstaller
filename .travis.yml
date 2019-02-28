@@ -11,4 +11,4 @@ before_script:
   - mv sapmachine-11.0.2 sapmachine
   - ls -lah sapmachine
 script:
-  - /c/Program Files (x86)/NSIS/makensis.exe /V4 /DVERSION=TEST /DFULLVERSION=ONLY.A.TEST sapmachine.nsi
+  - "/c/Program Files (x86)/NSIS/makensis.exe" /V4 /DVERSION=TEST /DFULLVERSION=ONLY.A.TEST sapmachine.nsi

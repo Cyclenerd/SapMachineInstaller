@@ -1,5 +1,7 @@
 # SapMachine Windows Installer
 
+[![Build Status](https://travis-ci.org/Cyclenerd/SapMachineInstaller.svg?branch=master)](https://travis-ci.org/Cyclenerd/SapMachineInstaller)
+
 [SapMachine](https://github.com/SAP/SapMachine) is a downstream version of the OpenJDK project.
 It is used to build and maintain a SAP supported version of OpenJDK for SAP customers and partners who wish to use OpenJDK to run their applications.
 

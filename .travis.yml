@@ -6,9 +6,9 @@ install:
   - choco install nsis
 
 before_script:
-  - wget "https://github.com/SAP/SapMachine/releases/download/sapmachine-11.0.2/sapmachine-jdk-11.0.2_windows-x64_bin.zip" -O sapmachine.zip
+  - wget -q "https://github.com/SAP/SapMachine/releases/download/sapmachine-11.0.2/sapmachine-jdk-11.0.2_windows-x64_bin.zip" -O sapmachine.zip
   - 7z.exe x sapmachine.zip
-  - move sapmachine-11.0.2 sapmachine
-  - dir sapmachine
+  - mv sapmachine-11.0.2 sapmachine
+  - ls -lah sapmachine
 script:
   - /c/Program Files (x86)/NSIS/makensis.exe /V4 /DVERSION=TEST /DFULLVERSION=ONLY.A.TEST sapmachine.nsi

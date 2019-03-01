@@ -1,7 +1,20 @@
-; sapmachine.nsi
-; Author: Nils Knieling - https://github.com/Cyclenerd
+; sapmachine.nsi - Windows Installer for SapMachine (OpenJDK release by SAP)
 ;
-; Windows Installer for SapMachine (OpenJDK release maintained and supported by SAP)
+; Copyright (C) 2019 Nils Knieling <https://github.com/Cyclenerd/SapMachineInstaller>
+;
+; This program is free software; you can redistribute it and/or modify
+; it under the terms of the GNU General Public License as published by
+; the Free Software Foundation; either version 2 of the License, or
+; (at your option) any later version.
+;
+; This program is distributed in the hope that it will be useful,
+; but WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+; GNU General Public License for more details.
+;
+; You should have received a copy of the GNU General Public License along
+; with this program; if not, write to the Free Software Foundation, Inc.,
+; 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 ;
 ;--------------------------------------------------------------------------------------------------
 
@@ -21,6 +34,9 @@ InstallDirRegKey HKLM "SOFTWARE\SapMachine${VERSION}" "Install_Dir"
 ; Request application privileges for Windows
 RequestExecutionLevel admin
 
+; Sets the compression algorithm used to compress files/data in the installer
+SetCompressor ZLIB
+; The zlib compression module for NSIS is licensed under the zlib/libpng license.
 
 ;--------------------------------------------------------------------------------------------------
 
@@ -53,7 +69,9 @@ FunctionEnd
 ; Path functions
 ; Based on:
 ;    https://raw.githubusercontent.com/ethereum/go-ethereum/master/build/nsis.pathupdate.nsh
-;    https://www.smartmontools.org/browser/trunk/smartmontools/os_win32/installer.nsi
+;       Copyright (C) 2014 The go-ethereum Authors, GNU Lesser General Public License v3.0
+;    https://www.smartmontools.org/browser/trunk/smartmontools/os_win32/installer.nsi?rev=4885
+;       Copyright (C) 2006-17 Christian Franke, GNU General Public License v2
 
 ; see https://support.microsoft.com/en-us/kb/104011
 !define Environ 'HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"'

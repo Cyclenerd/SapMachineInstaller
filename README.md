@@ -100,4 +100,4 @@ move sapmachine.exe sapmachine-jdk-11.0.2_windows-x64_bin.exe
 
 ## License
 
-This installer is Open Source Software and under the same licensing terms as the upstream OpenJDK project.
+GNU Public License version 2. Please feel free to fork and modify this on GitHub (https://github.com/Cyclenerd/SapMachineInstaller).

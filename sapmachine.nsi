@@ -24,6 +24,11 @@ Name "SapMachine ${FULLVERSION}"
 ; Remove the text 'Nullsoft Install System vX.XX' from the installer window 
 BrandingText "Installer by Nils Knieling"
 
+; Sets the icon of the installer
+Icon "icon\sapmachine.ico"
+; Sets the icon of the uninstaller
+UninstallIcon "icon\sapmachine.ico"
+
 ; The default installation directory
 InstallDir "$PROGRAMFILES64\SapMachine${VERSION}"
 

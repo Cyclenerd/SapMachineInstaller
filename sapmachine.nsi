@@ -38,11 +38,14 @@ RequestExecutionLevel admin
 SetCompressor ZLIB
 ; The zlib compression module for NSIS is licensed under the zlib/libpng license.
 
+; Declare that the installer is DPI-aware
+ManifestDPIAware true
+
 ;--------------------------------------------------------------------------------------------------
 
 ; Includes
-!include LogicLib.nsh
-!include x64.nsh
+!include "LogicLib.nsh"
+!include "x64.nsh"
 
 ; Pages
 Page components

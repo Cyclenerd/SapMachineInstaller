@@ -306,6 +306,13 @@ Section "Set JAVA_HOME variable (recommended)" HOME_SECTION
   DetailPrint "JAVA_HOME environment variable set"
 SectionEnd
 
+; Sends a message to HWND
+Section "" HWND_MESSAGE
+  SectionIn RO
+  ; make sure windows knows about the environment variable change
+  SendMessage ${HWND_BROADCAST} ${WM_WININICHANGE} 0 "STR:Environment" /TIMEOUT=5000
+  DetailPrint "Windows informed"
+SectionEnd
 
 ;--------------------------------------------------------------------------------------------------
 
@@ -321,11 +328,14 @@ Section "Uninstall"
     DeleteRegValue HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "JAVA_HOME"
     DetailPrint "JAVA_HOME environment variable deleted"
   ${EndIf}
-  
+
   ; Remove install dir from PATH
   Push "$INSTDIR\bin"
   Call un.RemoveFromPath
-  
+
   ; Remove directory
   RMDir /r /REBOOTOK "$INSTDIR"
+
+  ; make sure windows knows about the change
+  SendMessage ${HWND_BROADCAST} ${WM_WININICHANGE} 0 "STR:Environment" /TIMEOUT=5000
 SectionEnd

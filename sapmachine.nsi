@@ -24,10 +24,12 @@ Name "SapMachine ${FULLVERSION}"
 ; Remove the text 'Nullsoft Install System vX.XX' from the installer window 
 BrandingText "Installer by Nils Knieling"
 
+; Define icon
+!define MYICON "icon\sapmachine.ico"
 ; Sets the icon of the installer
-Icon "icon\sapmachine.ico"
+Icon ${MYICON}
 ; Sets the icon of the uninstaller
-UninstallIcon "icon\sapmachine.ico"
+UninstallIcon ${MYICON}
 
 ; The default installation directory
 InstallDir "$PROGRAMFILES64\SapMachine${VERSION}"
@@ -276,6 +278,8 @@ Section "Install SapMachine ${VERSION} (required)" COPY_SECTION
   SetOutPath $INSTDIR
   ; Put file there
   File /nonfatal /a /r "sapmachine\" #note back slash at the end
+  ; Copy icon
+  File /nonfatal /oname=icon.ico ${MYICON}
 SectionEnd
 
 ; Create uninstaller
@@ -287,6 +291,8 @@ Section "Uninstaller" UNINST_SECTION
   ; https://nsis.sourceforge.io/Add_uninstall_information_to_Add/Remove_Programs
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SapMachine${VERSION}" "DisplayName" "SapMachine ${FULLVERSION} (SAP version of OpenJDK)"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SapMachine${VERSION}" "UninstallString" '"$INSTDIR\uninstall.exe"'
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SapMachine${VERSION}" "DisplayVersion" "${FULLVERSION}"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SapMachine${VERSION}" "DisplayIcon" '"$INSTDIR\icon.ico"'
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SapMachine${VERSION}" "NoModify" 1
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SapMachine${VERSION}" "NoRepair" 1
   WriteUninstaller "$INSTDIR\uninstall.exe"

@@ -51,6 +51,7 @@ ManifestDPIAware true
 ; Includes
 !include "LogicLib.nsh"
 !include "x64.nsh"
+!include "WinMessages.nsh"
 
 ; Pages
 Page components

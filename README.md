@@ -5,7 +5,10 @@
 [SapMachine](https://github.com/SAP/SapMachine) is a downstream version of the OpenJDK project.
 It is used to build and maintain a SAP supported version of OpenJDK for SAP customers and partners who wish to use OpenJDK to run their applications.
 
-SAP currently doesn't provide an installer for Windows. Therefore this project.
+~~SAP currently doesn't provide an installer for Windows. Therefore this project.~~
+
+**Since April 10, 2019 Windows installers are created with every SapMachine release and are provided at https://sapmachine.io/.
+This project will not be developed further and is for documentation purposes only.**
 
 This installer is created with [NSIS](https://nsis.sourceforge.io) (Nullsoft Scriptable Install System).
 It is a professional open source system to create Windows installers.
